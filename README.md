@@ -1,4 +1,5 @@
 # POSTme
+![logo](https://github.com/marcelaulloa/POSTme/blob/main/postme-logo.jpg)
 
 ### Tool for Social Media Messaging Optimization
 
