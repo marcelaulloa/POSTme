@@ -5,6 +5,8 @@
 
 ## POSTme TEAM
 
+![team](https://github.com/marcelaulloa/POSTme/blob/main/vifor-team.001.jpeg)
+
 **Amalia Temneanu**
 
 Data Scientist with background in finance
