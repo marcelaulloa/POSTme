@@ -15,6 +15,9 @@ make_credentials_yaml.py
 # Ignore data folders
 **/data
 
+# Ignore large model folder
+**/models/sentiment
+
 # Ignore all text files
 *.txt
 *.rtf
