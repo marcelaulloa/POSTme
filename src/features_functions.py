@@ -9,6 +9,7 @@ import contractions
 import spacy
 import nltk
 import pandas as pd
+import numpy as np
 
 nlp = spacy.load('en_core_web_sm')
 ps = nltk.porter.PorterStemmer()
@@ -186,7 +187,7 @@ import textblob
 def textblob_labls(example):
     df_snt_obj = textblob.TextBlob(example['data_text']).sentiment
     example['subjectivity'] = df_snt_obj.subjectivity
-
+    example['subjectivity'] = np.round(example['subjectivity'],2)
     return example
 
 
