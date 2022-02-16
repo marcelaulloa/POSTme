@@ -17,4 +17,4 @@ Data Scientist with background in finance
 **Sibel Yasemin Özgan**
 
 Data Scientist with background in computational design
-- Connect [linkedin](https://www.linkedin.com/in/sibelyozgan/)
+[linkedin](https://www.linkedin.com/in/sibelyozgan/)
