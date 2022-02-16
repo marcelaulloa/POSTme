@@ -59,13 +59,11 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # Loading Functions #
 #####################
 import shap_functions as sf
-import lime_functions as lf
 import features_functions as ff
-import sentiment_calc as sent
 
-# ##################
-# # Model Loading #
-# ##################
+##################
+# Model Loading #
+##################
 
 HF_DATASETS_OFFLINE = 1
 TRANSFORMERS_OFFLINE = 1
@@ -74,7 +72,7 @@ import os
 
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
-PATH = 'https://drive.google.com/drive/folders/1tWlHa8cNclNZC7ZkEUx1mlCvxEuqMZt8?usp=sharing'
+PATH = '../models/sentiment'
 
 model_path = PATH
 tokenizer_path = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
@@ -166,14 +164,13 @@ if st.button('Predict'):
     #################################
     # Word Embeddings LIME Analysis #
     #################################
-    # exp.show_in_notebook(text=test_clean_text, labels=(1,))
+    import streamlit.components.v1 as components
     st.header('Text - LIME Analysis')
     st.write(
         "The words highlighted below are the ones considered by the model to predict engagement label.")
     test_vector = vectorizer.transform([norm_text])
-    class_names = [0, 1]
+    class_names = ['low', 'high']
     explainer = LimeTextExplainer(class_names=class_names)
     exp = explainer.explain_instance(norm_text, pipeline_nb.predict_proba, num_features=10, labels=[0, 1])
-    # exp = lf.plot_lime(norm_text, pipeline_nb, vectorizer)
-    st.markdown(exp.as_html(), unsafe_allow_html=True)
-
+    html = exp.as_html()
+    components.html(html, height=800)
