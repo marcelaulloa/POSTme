@@ -8,7 +8,7 @@ import lime
 import joblib
 # import pandas as pd
 # import numpy as np
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 # import seaborn as sns
 # import plotly.graph_objects as go
 # import math
@@ -152,6 +152,7 @@ if st.button('Predict'):
     ###########################
     # Sentiment SHAP Analysis #
     ###########################
+    import streamlit.components.v1 as components
     st.header('Text - Sentiment Analysis')
     st.write(
         "The words highlighted below are the ones considered by the model to predict sentiment.\n\n"
@@ -159,7 +160,13 @@ if st.button('Predict'):
     explainer = shap.Explainer(sentiment_task)
     shap_values = explainer([norm_text])
     shap.initjs()
-    st.pyplot(shap.plots.text(shap_values[0, :, sentiment[0]['label']]))
+    # st.pyplot(shap.plots.text(shap_values[0, :, sentiment[0]['label']]))
+
+    def st_shap(plot, height=None):
+        shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
+        components.html(shap_html, height=height)
+
+    st.pyplot(st_shap(shap.plots.text(shap_values[0, :, sentiment[0]['label']]),400))
 
     #################################
     # Word Embeddings LIME Analysis #
@@ -169,8 +176,8 @@ if st.button('Predict'):
     st.write(
         "The words highlighted below are the ones considered by the model to predict engagement label.")
     test_vector = vectorizer.transform([norm_text])
-    class_names = ['low', 'high']
+    class_names = [0,1]
     explainer = LimeTextExplainer(class_names=class_names)
-    exp = explainer.explain_instance(norm_text, pipeline_nb.predict_proba, num_features=10, labels=[0, 1])
-    html = exp.as_html()
+    exp = explainer.explain_instance(norm_text, pipeline_nb.predict_proba, num_features=20, labels=[0, 1])
+    html = exp.as_html(text=norm_text, labels=(1,))
     components.html(html, height=800)
