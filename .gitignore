@@ -1,0 +1,28 @@
+# Ignore Mac system files
+.DS_store
+
+credentials.json
+credentials.yml
+make_credentials.py
+make_credentials_yaml.py
+
+# Ignore data files
+.csv
+
+# Ignore reference folder
+**/references
+
+# Ignore data folders
+**/data
+
+# Ignore all text files
+*.txt
+*.rtf
+
+# Ignore files related to API keys
+.env
+
+# Ignore JupyterNotebooks checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+**/.ipynb_checkpoints
