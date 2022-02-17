@@ -11,7 +11,7 @@ POSTme! is the ultimate solution to company’s social media strategy, it is a p
 
 Figure 1: A demonstration of how the model works and what features it uses to predict whether a specific post gets high or low engagement.
 
-The project started with data preparation. Our data set consists of the company’s posts on LinkedIn and Twitter and the target variable we are trying to predict for each post has 2 labels: low and high engagement. The next step is feature engineering, where we tried to extract appropriate features for our classification. Thus, we applied syntactic parsing, entity extraction techniques, topic modeling and sentiment analysis with pre-trained transformers and word embeddings. After trying different combinations of features and models: machine learning models and deep learning architectures, we selected the winners:
+The project started with data preparation. Our data set consists of the company’s posts on LinkedIn and Twitter and the target variable we are trying to predict for each post has 2 labels: low and high engagement. The next step is feature engineering, where we tried to extract appropriate features for our classification. Thus, we applied syntactic parsing, entity extraction techniques, topic modeling and sentiment analysis with pre-trained transformers and word embeddings. After trying different combinations of features and models - machine learning models and deep learning architectures - we selected the winners:
 features: count-based features + date based features + Natural Language Processing Features
 model: Random Forest Classifier (the best in terms of accuracy and explainability)
 In the end, we evaluated the features importance and performed SHAP and LIME analysis.
