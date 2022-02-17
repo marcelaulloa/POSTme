@@ -16,9 +16,8 @@ model: Random Forest Classifier (the best in terms of accuracy and explainabilit
 In the end, we evaluated the features importance and performed SHAP and LIME analysis.
 The short figure below shows a snapshot of the POSTme! platform and how it works. 
 
+![Figure 2: Snapshot of how the POSTme! platform works](reports/img/final-Postme.gif)
 Figure 2: Snapshot of how the POSTme! platform works
-
-
 
 ## POSTme TEAM
 
