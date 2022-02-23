@@ -21,7 +21,7 @@ The short figure below shows a snapshot of the POSTme! platform and how it works
 
 Figure 2: Snapshot of how the POSTme! platform works
 
-Check out the presentation: [presentation](https://github.com/marcelaulloa/POSTme/blob/main/reports/README.md)
+Check out the [presentation](https://github.com/marcelaulloa/POSTme/blob/main/reports/README.md)!
 
 ## POSTme TEAM
 
