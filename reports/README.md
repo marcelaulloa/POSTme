@@ -1,5 +1,5 @@
 
-![Figure 1](reports/img/presentation/presentation.001.jpeg)
+![Figure 1](img/presentation/presentation.001.jpeg)
 ![Figure 2](reports/img/presentation/presentation.002.jpeg)
 ![Figure 3](reports/img/presentation/presentation.003.jpeg)
 ![Figure 4](reports/img/presentation/presentation.004.jpeg)
