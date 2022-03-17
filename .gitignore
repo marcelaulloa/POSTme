@@ -22,9 +22,6 @@ make_credentials_yaml.py
 *.txt
 *.rtf
 
-# Ignore files related to API keys
-.env
-
 # Ignore JupyterNotebooks checkpoints
 .ipynb_checkpoints
 */.ipynb_checkpoints/*

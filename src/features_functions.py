@@ -147,14 +147,14 @@ def text_pre_processor(text, remove_links_=True, remove_users_=True, remove_hash
     if text_lemmatization:
         text = spacy_lemmatize_text(text)
 
-        # remove special characters and\or digits
+    # remove special characters and\or digits
     if special_char_removal:
         # insert spaces between special characters to isolate them    
         special_char_pattern = re.compile(r'([{.(-)!}])')  # 'I will not go!here' => I will not go ! here'
         text = special_char_pattern.sub(" \\1 ", text)
         text = remove_special_characters(text, remove_digits=remove_digits)
 
-        # stem text
+    # stem text
     if text_stemming and not text_lemmatization:
         text = simple_stemming(text)
 
@@ -183,11 +183,9 @@ def corpus_pre_processor(corpus):
 
 import textblob
 
-
 def textblob_labls(example):
     df_snt_obj = textblob.TextBlob(example['data_text']).sentiment
     example['subjectivity'] = df_snt_obj.subjectivity
-    example['subjectivity'] = np.round(example['subjectivity'],2)
     return example
 
 
@@ -211,3 +209,15 @@ def prepare_demo_df(example):
     example['day_of_week'] = example['day_of_week'].astype('category')
     example['Sentiment'] = example['Sentiment'].astype('category')
     return example
+
+def feat_cat(x):
+    if x == '':
+        return 'Feature not in Post'
+    else:
+        return 'Feature in Post'
+
+def class_shap(x):
+      if x < 0:
+        return 'Negative Impact'
+      else:
+        return 'Positive Impact'
