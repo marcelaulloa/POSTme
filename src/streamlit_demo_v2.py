@@ -2,28 +2,17 @@
 ####################
 # Loading Packages #
 ####################
-from lime.lime_text import LimeTextExplainer
-import shap
-import lime
-import joblib
-import matplotlib.pyplot as plt
-from datetime import datetime
-import streamlit as st
-import sklearn
-import tensorflow as tf
-from tensorflow import keras
-from transformers import pipeline
-import streamlit.components.v1 as components
 import os
-import pandas as pd
-import numpy as np
-import plotly
-import plotly.express as px
-#####################
-# Loading Functions #
-#####################
-import shap_functions as sf
+from datetime import datetime
 import features_functions as ff
+import joblib
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import shap
+import shap_functions as sf
+import streamlit as st
+from transformers import pipeline
 
 st.set_page_config(layout="wide")
 st.set_option('deprecation.showPyplotGlobalUse', False)
