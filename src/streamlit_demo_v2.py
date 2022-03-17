@@ -157,11 +157,11 @@ if st.button('Predict'):
     example['day_time'] = example['day_time'].astype('object')
 
     categorical_features = example.select_dtypes(include=["object", "category"]).columns.tolist()
-    numeric_features = example.select_dtypes(include=["int64", "float64"]).columns.tolist()
+    # numeric_features = example.select_dtypes(include=["int64", "float64"]).columns.tolist()
 
     numeric_features = list(pipeline_rf['pre_process'].transformers_[0][2])
-    categorical_features = list(
-        pipeline_rf['pre_process'].transformers_[1][1]['onehot'].get_feature_names_out(categorical_features))
+    # categorical_features = list(
+    #     pipeline_rf['pre_process'].transformers_[1][1]['onehot'].get_feature_names_out(categorical_features))
 
     numeric_features2 = ['Number of hashtags', 'Number of links', 'Number of mentions', 'Subjectivity']
 
