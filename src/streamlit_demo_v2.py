@@ -28,7 +28,7 @@ TRANSFORMERS_OFFLINE = 1
 
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
-model_path = "../models/sentiment"
+model_path = "models/sentiment"
 tokenizer_path = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
 
 
@@ -36,17 +36,17 @@ tokenizer_path = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
 def loading_models():
     return (
         pipeline("sentiment-analysis", model=model_path, tokenizer=tokenizer_path),
-        joblib.load('../models/pipeline_random.sav'),
-        joblib.load('../models/shap_explainer.sav'),
-        joblib.load('../models/pipeline_nb_lime.sav'),
-        joblib.load('../models/vectorizer.sav'))
+        joblib.load('models/pipeline_random.sav'),
+        joblib.load('models/shap_explainer.sav'),
+        joblib.load('models/pipeline_nb_lime.sav'),
+        joblib.load('models/vectorizer.sav'))
 
 
 sentiment_task, pipeline_rf, explainer, pipeline_nb, vectorizer = loading_models()
 
 col1, col2 = st.columns([1, 4])
 with col1:
-    image = '../image/LOGO-01.jpg'
+    image = 'image/LOGO-01.jpg'
     st.image(image, caption=None, width=200, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 with col2:
     st.title("POSTMe!")
