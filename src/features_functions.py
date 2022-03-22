@@ -183,6 +183,7 @@ def corpus_pre_processor(corpus):
 
 import textblob
 
+
 def textblob_labls(example):
     df_snt_obj = textblob.TextBlob(example['data_text']).sentiment
     example['subjectivity'] = df_snt_obj.subjectivity
@@ -210,14 +211,16 @@ def prepare_demo_df(example):
     example['Sentiment'] = example['Sentiment'].astype('category')
     return example
 
+
 def feat_cat(x):
     if x == '':
         return 'Feature not in Post'
     else:
         return 'Feature in Post'
 
+
 def class_shap(x):
-      if x < 0:
+    if x < 0:
         return 'Negative Impact'
-      else:
+    else:
         return 'Positive Impact'
