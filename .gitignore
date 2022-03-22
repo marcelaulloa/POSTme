@@ -19,7 +19,6 @@ make_credentials_yaml.py
 **/models/sentiment
 
 # Ignore all text files
-*.txt
 *.rtf
 
 # Ignore JupyterNotebooks checkpoints
