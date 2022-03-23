@@ -108,7 +108,10 @@ if st.button('Predict'):
 
     norm_text_list = norm_text.split()
 
+    print(norm_text_list)
+
     shap_text_df_new = df = pd.DataFrame()
+
     idx_df = 0
     idx_w = 0
 
@@ -118,12 +121,17 @@ if st.button('Predict'):
     score_pos_current = 0
 
     while idx_w < len(norm_text_list) and idx_df < len(shap_text_df['words']):
+        print(shap_text_df.iloc[idx_df])
         score_0, score_1, score_2, word = shap_text_df.iloc[idx_df]
         score_neg_current += score_0
         score_neu_current += score_1
         score_pos_current += score_2
         word = word.strip()
         word_current += word
+
+        if not norm_text_list[idx_w].startswith(word_current):
+            word_current = word
+
         if word_current == norm_text_list[idx_w]:
             new_row = {'Word': word_current, 'Negative': score_neg_current, 'Neutral': score_neu_current,
                        'Positive': score_pos_current}
@@ -133,8 +141,9 @@ if st.button('Predict'):
             score_neu_current = 0
             score_pos_current = 0
             idx_w = idx_w + 1
-        idx_df += 1
 
+        idx_df += 1
+    print(shap_text_df_new)
     shap_text_df_new = shap_text_df_new[['Word', sentiment_label]]
     shap_text_df_new[sentiment_label] = shap_text_df_new[sentiment_label].apply(lambda x: np.round(-x, 2))
     shap_text_df_new['Contribution'] = shap_text_df_new[sentiment_label].apply(lambda x: ff.class_shap(x))
